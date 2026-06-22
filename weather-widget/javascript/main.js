@@ -1,2 +1,2 @@
 console.log("This works");
-console.log("Hello,World!")
+const API_KEY = config.WEATHER_API_KEY;
