@@ -2,6 +2,21 @@ console.log("This works");
 const API_KEY = config.WEATHER_API_KEY;
 function getWeatherData() {
     fetch(`https://api.openweathermap.org/data/2.5/weather?zip=10011&APPID=${API_KEY}`)
-        .then(response => response.json())
-        .then(data => console.log(data));
-    }
+        .then((response) => response.json())
+        .then((data) => {
+            //store the data in a variable for later use
+            let local_weather_data = data;
+            //log the data to the browser console to see what it looks like
+            console.log(local_weather_data);
+        });
+}
+let btn = document.querySelector(".search-button");
+btn.addEventListener('click', getZipCode);
+function getZipCode() {
+    console.log('I was clicked!');
+}
+function getZipCode(e) {
+    e.preventDefault();
+    console.log(e);
+}
+let input = document.querySelector(".zipcode");
