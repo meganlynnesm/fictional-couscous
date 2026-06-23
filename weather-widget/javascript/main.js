@@ -1,4 +1,5 @@
 console.log("This works");
+
 const API_KEY = config.WEATHER_API_KEY;
 
 function getWeatherData() {
@@ -20,4 +21,5 @@ function getZipCode(e) {
     e.preventDefault();
     console.log(e);
 }
-let input = document.querySelector(".zipcode");
+const input = document.querySelector(".zipcode");
+let ZIP_CODE = input.value;
