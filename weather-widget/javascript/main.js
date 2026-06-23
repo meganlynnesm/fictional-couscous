@@ -1,5 +1,8 @@
 console.log("This works");
 
+const config = {
+    WEATHER_API_KEY: "8fa484ce9c89dba29bf695f05ec131b88"};
+    
 const WEATHER_API_KEY = config.WEATHER_API_KEY;
 
 function getWeatherData() {
