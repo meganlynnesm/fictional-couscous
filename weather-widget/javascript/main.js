@@ -1,28 +1,31 @@
 console.log("This works");
 
 const config = {
-    WEATHER_API_KEY: "8fa484ce9c89dba29bf695f05ec131b88"};
-    
+    WEATHER_API_KEY: "8fa484ce9c89dba29bf695f05ec131b8"
+};
+
 const WEATHER_API_KEY = config.WEATHER_API_KEY;
 
-function getWeatherData() {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?zip=10011&APPID=${WEATHER_API_KEY}`)
+let input = document.querySelector(".zipcode");
+let btn = document.querySelector(".search-button");
+
+getWeatherData = (zip) => {
+    let API_KEY = config.WEATHER_API_KEY;
+    let API_ENDPOINT = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${API_KEY}`;
+
+    fetch(API_ENDPOINT)
         .then((response) => response.json())
         .then((data) => {
-            //store the data in a variable for later use
             let local_weather_data = data;
-            //log the data to the browser console to see what it looks like
-            console.log(local_weather_data);
-        });
+                console.log(local_weather_data)
+        })
 }
-let btn = document.querySelector(".search-button");
-btn.addEventListener('click', getZipCode);
-function getZipCode() {
-    console.log('I was clicked!');
-}
+
 function getZipCode(e) {
     e.preventDefault();
-    console.log(e);
+    let zipCode = input.value;
+    console.log(zipCode);
+    getWeatherData(zipCode);
 }
-const input = document.querySelector(".zipcode");
-let ZIP_CODE = input.value;
+
+btn.addEventListener("click", getZipCode);
