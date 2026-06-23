@@ -29,6 +29,7 @@ const getWeatherData = (zip) => {
             );
             CITY_TEMP.textContent = weather_in_celsius;
             let WEATHER_ICON = local_weather_data.weather[0].icon
+            
             image.setAttribute('src', `https://openweathermap.org/img/wn/${WEATHER_ICON}@2x.png`)
         });
 }
